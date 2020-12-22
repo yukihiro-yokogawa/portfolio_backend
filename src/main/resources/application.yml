@@ -1,0 +1,15 @@
+spring:
+    jpa:
+        database: postgresql
+    datasource:
+        platform: postgres
+        driver-class-name: org.postgresql.Driver
+        url: jdbc:postgresql://localhost:5432/portfolio
+        username: postgres
+        password: postgres
+
+logging:
+    level:
+        org:   
+            hibernate:
+                SQL: debug
