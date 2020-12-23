@@ -23,22 +23,22 @@ public class ProjectAbout implements Serializable {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    final Integer id;
+    private final Integer id;
 
     @Column(name = "about_id")
-    final Integer aboutId;
+    private final Integer aboutId;
 
     @Column(name = "project_id")
-    final Integer projectId;
+    private final Integer projectId;
 
     @Column(name = "description")
-    final String description;
+    private final String description;
 
     @Column(name = "display_order")
-    final Integer displayOrder;
+    private final Integer displayOrder;
 
     @OneToOne
     @JoinColumn(name = "id")
-    final About abouts;
+    private final About abouts;
 
 }

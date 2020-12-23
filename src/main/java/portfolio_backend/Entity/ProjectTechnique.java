@@ -24,16 +24,16 @@ public class ProjectTechnique implements Serializable {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    final Integer id;
+    private final Integer id;
 
     @Column(name = "technique_id")
-    final Integer techniqueId;
+    private final Integer techniqueId;
 
     @Column(name = "project_id")
-    final Integer projectId;
+    private final Integer projectId;
 
     @OneToMany
     @JoinColumn(name = "technique_id", referencedColumnName = "id")
-    final List<Technique> techniques;
+    private final List<Technique> techniques;
 
 }

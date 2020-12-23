@@ -21,11 +21,11 @@ public class Technique implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    final Integer id;
+    private final Integer id;
 
     @Column(name = "name")
-    final String name;
+    private final String name;
 
     @Column(name = "virsion")
-    final Integer virsion;
+    private final Integer virsion;
 }

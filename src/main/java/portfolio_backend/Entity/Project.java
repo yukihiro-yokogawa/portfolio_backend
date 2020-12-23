@@ -26,30 +26,30 @@ public class Project implements Serializable {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    final Integer id;
+    private final Integer id;
 
     @Column(name = "name")
-    final String name;
+    private final String name;
 
     @Column(name = "start_date")
     @Temporal(TemporalType.TIMESTAMP)
-    final Date startDate;
+    private final Date startDate;
 
     @Column(name = "end_date")
     @Temporal(TemporalType.TIMESTAMP)
-    final Date endDate;
+    private final Date endDate;
 
     @Column(name = "add_date")
     @Temporal(TemporalType.TIMESTAMP)
-    final Date addDate;
+    private final Date addDate;
 
     @OneToMany(mappedBy = "projectId")
-    final List<ProjectTechnique> projectTechniques;
+    private final List<ProjectTechnique> projectTechniques;
 
     @OneToMany(mappedBy = "projectId")
-    final List<ProjectAbout> projectAbouts;
+    private final List<ProjectAbout> projectAbouts;
 
     @OneToMany(mappedBy="projectId")
-    final List<ProjectImage> projectImages;
+    private final List<ProjectImage> projectImages;
 
 }

@@ -21,12 +21,12 @@ public class ProjectImage implements Serializable {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    final Integer id;
+    private final Integer id;
 
     @Column(name = "project_id")
-    final Integer projectId;
+    private final Integer projectId;
 
     @Column(name = "image")
-    final String image;
+    private final String image;
 
 }
