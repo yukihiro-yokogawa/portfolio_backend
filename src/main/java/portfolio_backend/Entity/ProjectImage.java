@@ -11,7 +11,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Data
-@Entity(name = "project_imags")
+@Entity(name = "project_images")
 public class ProjectImage implements Serializable {
 
     /**
@@ -22,9 +22,6 @@ public class ProjectImage implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private final Integer id;
-
-    @Column(name = "project_id")
-    private final Integer projectId;
 
     @Column(name = "image")
     private final String image;

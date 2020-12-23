@@ -25,12 +25,6 @@ public class ProjectAbout implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private final Integer id;
 
-    @Column(name = "about_id")
-    private final Integer aboutId;
-
-    @Column(name = "project_id")
-    private final Integer projectId;
-
     @Column(name = "description")
     private final String description;
 

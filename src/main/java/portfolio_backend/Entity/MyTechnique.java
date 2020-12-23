@@ -2,6 +2,7 @@ package portfolio_backend.Entity;
 
 import java.io.Serializable;
 import java.util.List;
+import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -26,14 +27,11 @@ public class MyTechnique implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private final Integer id;
 
-    @Column(name = "technique_id")
-    private final Integer techniqueId;
-
     @Column(name = "coimprehension")
     private final Integer coimprehension;
 
     @OneToMany
     @JoinColumn(name = "technique_id", referencedColumnName = "id")
-    private final List<Technique> techniques;
+    private final Set<Technique> techniques;
 
 }
