@@ -1,7 +1,6 @@
 package portfolio_backend.Entity;
 
 import java.io.Serializable;
-import java.util.List;
 import java.util.Set;
 
 import javax.persistence.Column;

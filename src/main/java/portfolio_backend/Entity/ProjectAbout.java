@@ -33,6 +33,6 @@ public class ProjectAbout implements Serializable {
 
     @OneToOne
     @JoinColumn(name = "about_id", referencedColumnName = "id")
-    private final About abouts;
+    private final About about;
 
 }

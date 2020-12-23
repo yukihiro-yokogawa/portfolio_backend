@@ -1,14 +1,13 @@
 package portfolio_backend.Entity;
 
 import java.io.Serializable;
-import java.util.Set;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 import lombok.Data;
 
@@ -25,8 +24,8 @@ public class ProjectTechnique implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private final Integer id;
 
-    @OneToMany
+    @OneToOne
     @JoinColumn(name = "technique_id", referencedColumnName = "id")
-    private final Set<Technique> techniques;
+    private final Technique technique;
 
 }
