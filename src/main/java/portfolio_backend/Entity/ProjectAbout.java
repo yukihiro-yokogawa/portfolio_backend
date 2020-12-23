@@ -38,7 +38,7 @@ public class ProjectAbout implements Serializable {
     private final Integer displayOrder;
 
     @OneToOne
-    @JoinColumn(name = "id")
+    @JoinColumn(name = "about_id", referencedColumnName = "id")
     private final About abouts;
 
 }

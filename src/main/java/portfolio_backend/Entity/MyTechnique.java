@@ -33,7 +33,7 @@ public class MyTechnique implements Serializable {
     private final Integer coimprehension;
 
     @OneToMany
-    @JoinColumn(name = "id")
+    @JoinColumn(name = "technique_id", referencedColumnName = "id")
     private final List<Technique> techniques;
 
 }
