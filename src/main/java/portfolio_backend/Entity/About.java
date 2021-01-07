@@ -9,8 +9,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
+@NoArgsConstructor
 @Entity(name="abouts")
 public class About implements Serializable{
 
@@ -21,9 +23,9 @@ public class About implements Serializable{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private final Integer id;
+    private Integer id;
 
     @Column(name = "name")
-    private final String name;
+    private String name;
 
 }

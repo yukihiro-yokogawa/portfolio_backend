@@ -9,8 +9,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
+@NoArgsConstructor
 @Entity(name = "techniques")
 public class Technique implements Serializable {
 
@@ -21,11 +23,11 @@ public class Technique implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private final Integer id;
+    private Integer id;
 
     @Column(name = "name")
-    private final String name;
+    private String name;
 
     @Column(name = "virsion")
-    private final Integer virsion;
+    private Integer virsion;
 }

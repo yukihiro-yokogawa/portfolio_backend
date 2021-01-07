@@ -11,8 +11,10 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
+@NoArgsConstructor
 @Entity(name = "project_abouts")
 public class ProjectAbout implements Serializable {
 
@@ -23,16 +25,16 @@ public class ProjectAbout implements Serializable {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private final Integer id;
+    private Integer id;
 
     @Column(name = "description")
-    private final String description;
+    private String description;
 
     @Column(name = "display_order")
-    private final Integer displayOrder;
+    private Integer displayOrder;
 
     @OneToOne
     @JoinColumn(name = "about_id", referencedColumnName = "id")
-    private final About about;
+    private About about = new About();
 
 }

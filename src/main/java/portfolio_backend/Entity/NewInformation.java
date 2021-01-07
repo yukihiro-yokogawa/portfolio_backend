@@ -10,8 +10,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
+@NoArgsConstructor
 @Entity(name = "new_information")
 public class NewInformation implements Serializable {
 
@@ -22,12 +24,12 @@ public class NewInformation implements Serializable {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private final Integer id;
+    private Integer id;
 
     @Column(name = "text")
-    private final String text;
+    private String text;
 
     @Column(name = "add_date")
-    private final Date addDate;
+    private Date addDate;
 
 }

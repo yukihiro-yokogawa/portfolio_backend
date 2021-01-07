@@ -1,6 +1,7 @@
 package portfolio_backend.Entity;
 
 import java.io.Serializable;
+import java.util.HashSet;
 import java.util.Set;
 
 import javax.persistence.Column;
@@ -12,8 +13,10 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
+@NoArgsConstructor
 @Entity(name="my_techniques")
 public class MyTechnique implements Serializable {
 
@@ -24,13 +27,13 @@ public class MyTechnique implements Serializable {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private final Integer id;
+    private Integer id;
 
     @Column(name = "coimprehension")
-    private final Integer coimprehension;
+    private Integer coimprehension;
 
     @OneToMany
     @JoinColumn(name = "technique_id", referencedColumnName = "id")
-    private final Set<Technique> techniques;
+    private Set<Technique> techniques = new HashSet<>();
 
 }

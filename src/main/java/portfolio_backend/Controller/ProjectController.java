@@ -1,8 +1,5 @@
 package portfolio_backend.Controller;
 
-import java.util.List;
-import java.util.Optional;
-
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,8 +17,9 @@ public class ProjectController {
     private final ProjectService projectService;
 
     @GetMapping("{id}")
-    public Optional<Project> getById(@PathVariable("id") Integer id){
-        return projectService.findById(id);
+    public Project getById(@PathVariable("id") Integer id) {
+        final Project project = projectService.findById(id).orElse(new Project());
+        return project;
     }
 
 }

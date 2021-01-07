@@ -2,6 +2,7 @@ package portfolio_backend.Entity;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.HashSet;
 import java.util.Set;
 
 import javax.persistence.Column;
@@ -16,8 +17,10 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
+@NoArgsConstructor
 @Entity(name = "projects")
 public class Project implements Serializable {
 
@@ -28,33 +31,36 @@ public class Project implements Serializable {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private final Integer id;
+    private Integer id;
 
     @Column(name = "name")
-    private final String name;
+    private String name;
 
     @Column(name = "start_date")
     @Temporal(TemporalType.TIMESTAMP)
-    private final Date startDate;
+    private Date startDate;
 
     @Column(name = "end_date")
     @Temporal(TemporalType.TIMESTAMP)
-    private final Date endDate;
+    private Date endDate;
 
     @Column(name = "add_date")
     @Temporal(TemporalType.TIMESTAMP)
-    private final Date addDate;
+    private Date addDate;
+
+    @Column(name = "git_url")
+    private String gitUrl;
+    
+    @OneToMany(fetch = FetchType.EAGER)
+    @JoinColumn(name = "project_id")
+    private Set<ProjectTechnique> projectTechniques = new HashSet<ProjectTechnique>();
 
     @OneToMany(fetch = FetchType.EAGER)
     @JoinColumn(name = "project_id")
-    private final Set<ProjectTechnique> projectTechniques;
+    private Set<ProjectAbout> projectAbouts = new HashSet<ProjectAbout>();
 
     @OneToMany(fetch = FetchType.EAGER)
     @JoinColumn(name = "project_id")
-    private final Set<ProjectAbout> projectAbouts;
-
-    @OneToMany(fetch = FetchType.EAGER)
-    @JoinColumn(name = "project_id")
-    private final Set<ProjectImage> projectImages;
+    private Set<ProjectImage> projectImages = new HashSet<ProjectImage>();
 
 }

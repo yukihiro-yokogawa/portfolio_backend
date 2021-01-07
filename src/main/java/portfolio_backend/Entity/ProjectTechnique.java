@@ -10,8 +10,10 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
+@NoArgsConstructor
 @Entity(name = "project_techniques")
 public class ProjectTechnique implements Serializable {
 
@@ -22,10 +24,10 @@ public class ProjectTechnique implements Serializable {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private final Integer id;
+    private Integer id;
 
     @OneToOne
     @JoinColumn(name = "technique_id", referencedColumnName = "id")
-    private final Technique technique;
+    private Technique technique = new Technique();
 
 }
