@@ -1,6 +1,6 @@
 package portfolio_backend.Service;
 
-import java.util.Optional;
+import java.util.List;
 
 import org.springframework.stereotype.Service;
 
@@ -14,8 +14,8 @@ public class ProjectService {
     
     private final ProjectRepository projectRepository;
 
-    public Optional<Project> findById(Integer id) {
-        return projectRepository.findById(id);
+    public List<Project> findAll() {
+        return projectRepository.findAll();
     }
 
 }
