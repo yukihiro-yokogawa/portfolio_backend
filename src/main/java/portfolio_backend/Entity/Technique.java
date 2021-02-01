@@ -28,6 +28,6 @@ public class Technique implements Serializable {
     @Column(name = "name")
     private String name;
 
-    @Column(name = "virsion")
-    private Integer virsion;
+    @Column(name = "version")
+    private Integer version;
 }
