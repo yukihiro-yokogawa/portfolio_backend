@@ -1,1 +1,1 @@
-web: java -jar build/libs/portfolio-backend.jar --server.port=$PORT
+web: java -jar build/libs/portfolio_backend-0.0.1-SNAPSHOT.jar --server.port=$PORT
