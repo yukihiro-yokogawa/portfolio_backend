@@ -5,3 +5,8 @@ https://github.com/yukihiro-yokogawa/portfolio
 # コード規約
 ・DIはコンストラクタインジェクションを使う（Lombokを併用すること）
 ・Getter, SetterはLombokで省略
+
+# deployment
+```
+git push heroku master
+```
