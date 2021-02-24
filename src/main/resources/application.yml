@@ -4,9 +4,9 @@ spring:
     datasource:
         platform: postgres
         driver-class-name: org.postgresql.Driver
-        url: jdbc:postgresql://localhost:5432/portfolio
-        username: postgres
-        password: postgres
+        url: ${DATABASE_URL:jdbc:postgresql://localhost:5432/portfolio}
+        username: ${DATABASE_USER:postgres}
+        password: ${DATABASE_PASSWORD:postgres}
 
 logging:
     level:
