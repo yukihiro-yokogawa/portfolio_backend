@@ -8,32 +8,27 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
 @NoArgsConstructor
-@Entity(name = "techniques")
-public class Technique implements Serializable {
+@Entity(name="my_skills")
+public class MySkill implements Serializable {
 
-    /**
-     * シリアルバージョンUID.
-     */
     private static final long serialVersionUID = 1L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-
-    @Column(name = "name")
-    private String name;
-
-    @Column(name = "version")
-    private String version;
     
-    @ManyToOne
-    @JoinColumn(name = "techniqueTypeId", referencedColumnName = "id")
-    private TechniqueType techniqueType = new TechniqueType();
+    @Column(name = "level")
+    private Integer level;
+
+    @OneToOne
+    @JoinColumn(name = "technique_id", referencedColumnName = "id")
+    private Technique technique;
+
 }

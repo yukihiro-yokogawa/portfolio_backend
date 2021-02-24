@@ -7,16 +7,14 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
 @NoArgsConstructor
-@Entity(name = "techniques")
-public class Technique implements Serializable {
+@Entity(name = "technique_types")
+public class TechniqueType implements Serializable {
 
     /**
      * シリアルバージョンUID.
@@ -30,10 +28,6 @@ public class Technique implements Serializable {
     @Column(name = "name")
     private String name;
 
-    @Column(name = "version")
-    private String version;
-    
-    @ManyToOne
-    @JoinColumn(name = "techniqueTypeId", referencedColumnName = "id")
-    private TechniqueType techniqueType = new TechniqueType();
+    @Column(name = "display_order")
+    private Integer displayOrder;
 }

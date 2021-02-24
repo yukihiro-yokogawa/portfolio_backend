@@ -5,6 +5,7 @@ import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -51,15 +52,16 @@ public class Project implements Serializable {
     @Column(name = "git_url")
     private String gitUrl;
     
-    @OneToMany(fetch = FetchType.EAGER)
+    @OneToMany(fetch = FetchType.EAGER, cascade = { CascadeType.ALL })
     @JoinColumn(name = "project_id")
     private Set<ProjectTechnique> projectTechniques = new HashSet<ProjectTechnique>();
 
-    @OneToMany(fetch = FetchType.EAGER)
+    @OneToMany(fetch = FetchType.EAGER, cascade = { CascadeType.ALL })
     @JoinColumn(name = "project_id")
     private Set<ProjectAbout> projectAbouts = new HashSet<ProjectAbout>();
 
-    @OneToMany(fetch = FetchType.EAGER)
+    @OneToMany(fetch = FetchType.EAGER, cascade = {
+            CascadeType.ALL })
     @JoinColumn(name = "project_id")
     private Set<ProjectImage> projectImages = new HashSet<ProjectImage>();
 

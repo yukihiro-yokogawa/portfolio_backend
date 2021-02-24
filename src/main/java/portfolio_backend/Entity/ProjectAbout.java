@@ -2,6 +2,7 @@ package portfolio_backend.Entity;
 
 import java.io.Serializable;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -33,7 +34,8 @@ public class ProjectAbout implements Serializable {
     @Column(name = "display_order")
     private Integer displayOrder;
 
-    @OneToOne
+    @OneToOne(cascade = {
+            CascadeType.ALL })
     @JoinColumn(name = "about_id", referencedColumnName = "id")
     private About about = new About();
 
