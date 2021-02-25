@@ -27,7 +27,6 @@ public class TechniqueController {
 
     @PostMapping("/post")
     public void postTechnique(@RequestPart("technique")Technique technique) {
-        System.out.println(technique);
         techniqueService.insert(technique);
     }
 

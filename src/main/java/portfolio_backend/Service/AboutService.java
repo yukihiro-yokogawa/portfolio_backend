@@ -11,9 +11,14 @@ import portfolio_backend.Repository.AboutRepository;
 @Service
 @AllArgsConstructor
 public class AboutService {
+    
     private final AboutRepository aboutRepository;
 
     public List<About> findAll() {
         return aboutRepository.findAll();
     }
+
+	public void insert(About about) {
+        aboutRepository.save(about);
+	}
 }
