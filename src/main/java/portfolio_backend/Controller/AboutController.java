@@ -25,9 +25,22 @@ public class AboutController {
     }
 
     @PostMapping("/post")
-    public void postAbout(@RequestBody About about) {
-        System.out.println(about);
-        aboutService.insert(about);
+    public void postAbout(@RequestBody About about) throws Exception {
+        try {
+            System.out.println(about);
+            aboutService.insert(about);
+        } catch (Exception e) {
+
+            // どういう例外が発生しているか出力する
+            System.out.println("例外クラス: " + e.getClass().getName());
+
+            // 原因となった例外のチェーンを出力する
+            Throwable cause = e;
+            while ((cause = cause.getCause()) != null) {
+                System.out.println("原因例外クラス: " + cause.getClass().getName());
+            }
+            throw e;
+        }
     }
 
 }
