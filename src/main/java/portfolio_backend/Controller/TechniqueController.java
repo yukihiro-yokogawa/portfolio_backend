@@ -27,6 +27,8 @@ public class TechniqueController {
 
     @PostMapping("/post")
     public void postTechnique(@RequestBody Technique technique) {
+        System.out.println("test");
+        System.out.println("technique");
         try{
             techniqueService.insert(technique);
         } catch (Exception e) {
