@@ -4,8 +4,8 @@ import java.util.List;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.bind.annotation.RestController;
 
 import lombok.AllArgsConstructor;
@@ -26,7 +26,7 @@ public class TechniqueController {
 
 
     @PostMapping("/post")
-    public void postTechnique(@RequestPart("technique")Technique technique) {
+    public void postTechnique(@RequestBody Technique technique) {
         techniqueService.insert(technique);
     }
 
