@@ -18,4 +18,8 @@ public class MySkillService {
         return mySkillRepository.findAll();
     }
 
+	public void insert(List<MySkill> skill) {
+        mySkillRepository.saveAll(skill);
+	}
+
 }
