@@ -8,13 +8,15 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
 @NoArgsConstructor
-@Entity(name = "new_information")
+@Entity(name = "new_informations")
 public class NewInformation implements Serializable {
 
     /**
@@ -31,5 +33,9 @@ public class NewInformation implements Serializable {
 
     @Column(name = "add_date")
     private Date addDate;
+
+    @OneToOne
+    @JoinColumn(name = "information_tag_id", referencedColumnName = "id")
+    private Technique technique;
 
 }
