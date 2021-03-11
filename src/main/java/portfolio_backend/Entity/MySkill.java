@@ -31,6 +31,9 @@ public class MySkill implements Serializable {
     @Column(name = "level")
     private Integer level;
 
+    @Column(name = "deleted")
+    private Boolean deleted;
+
     @OneToOne(cascade = { CascadeType.ALL })
     @JoinColumn(name = "technique_id", referencedColumnName = "id")
     private Technique technique;
