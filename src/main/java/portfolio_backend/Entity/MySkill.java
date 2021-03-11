@@ -2,6 +2,7 @@ package portfolio_backend.Entity;
 
 import java.io.Serializable;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -17,7 +18,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Entity(name="my_skills")
 public class MySkill implements Serializable {
-    
+
     /**
      * シリアルバージョンUID.
      */
@@ -30,7 +31,7 @@ public class MySkill implements Serializable {
     @Column(name = "level")
     private Integer level;
 
-    @OneToOne
+    @OneToOne(cascade = { CascadeType.ALL })
     @JoinColumn(name = "technique_id", referencedColumnName = "id")
     private Technique technique;
 

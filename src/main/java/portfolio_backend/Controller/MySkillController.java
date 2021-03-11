@@ -26,7 +26,6 @@ public class MySkillController {
 
     @PostMapping("/post")
     public void postMySkill(@RequestBody List<MySkill> skill) {
-        System.out.println(skill);
         mySkillService.insert(skill);
     }
 

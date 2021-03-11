@@ -34,6 +34,7 @@ public class ProjectController {
 
     @PostMapping("/post")
     public void insertProject(@RequestBody Project project) {
+        System.out.println(project);
         projectService.insert(project);
     }
 
