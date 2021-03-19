@@ -7,7 +7,9 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import portfolio_backend.Entity.MySkill;
 
 public interface MySkillRepository extends JpaRepository<MySkill, Integer> {
-    
+
     List<MySkill> findAll();
+
+    List<MySkill> findAllByDeleted(boolean deleted);
 
 }

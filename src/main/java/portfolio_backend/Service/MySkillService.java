@@ -11,15 +11,19 @@ import portfolio_backend.Repository.MySkillRepository;
 @Service
 @AllArgsConstructor
 public class MySkillService {
-    
+
     private final MySkillRepository mySkillRepository;
 
     public List<MySkill> findAll() {
         return mySkillRepository.findAll();
     }
 
-	public void insert(List<MySkill> skill) {
+    public List<MySkill> findAllByDeleted() {
+        return mySkillRepository.findAllByDeleted(false);
+    }
+
+    public void insert(List<MySkill> skill) {
         mySkillRepository.saveAll(skill);
-	}
+    }
 
 }

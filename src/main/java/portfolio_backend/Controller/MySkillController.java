@@ -16,12 +16,17 @@ import portfolio_backend.Service.MySkillService;
 @RequestMapping("api/skill")
 @AllArgsConstructor
 public class MySkillController {
-    
+
     private final MySkillService mySkillService;
 
     @GetMapping("/get")
     public List<MySkill> getMySkill() {
         return mySkillService.findAll();
+    }
+
+    @GetMapping("/getDeleted")
+    public List<MySkill> getMySkillByDeleted() {
+        return mySkillService.findAllByDeleted();
     }
 
     @PostMapping("/post")

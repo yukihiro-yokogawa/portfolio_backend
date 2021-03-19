@@ -32,7 +32,7 @@ public class MySkill implements Serializable {
     private Integer level;
 
     @Column(name = "deleted")
-    private Boolean deleted;
+    private boolean deleted;
 
     @OneToOne(cascade = { CascadeType.ALL })
     @JoinColumn(name = "technique_id", referencedColumnName = "id")
