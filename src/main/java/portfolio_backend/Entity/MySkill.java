@@ -16,7 +16,7 @@ import lombok.NoArgsConstructor;
 
 @Data
 @NoArgsConstructor
-@Entity(name="my_skills")
+@Entity(name = "my_skills")
 public class MySkill implements Serializable {
 
     /**
@@ -27,14 +27,14 @@ public class MySkill implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    
+
     @Column(name = "level")
     private Integer level;
 
     @Column(name = "deleted")
     private boolean deleted;
 
-    @OneToOne(cascade = { CascadeType.ALL })
+    @OneToOne
     @JoinColumn(name = "technique_id", referencedColumnName = "id")
     private Technique technique;
 
