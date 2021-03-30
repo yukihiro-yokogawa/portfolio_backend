@@ -16,7 +16,7 @@ import portfolio_backend.Service.AboutService;
 @RequestMapping("api/about")
 @AllArgsConstructor
 public class AboutController {
-    
+
     private AboutService aboutService;
 
     @GetMapping("/get")
