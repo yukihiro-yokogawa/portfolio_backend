@@ -1,6 +1,7 @@
 package portfolio_backend.Controller;
 
 import lombok.AllArgsConstructor;
+import org.springframework.dao.DataAccessException;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -18,7 +19,19 @@ public class ProfileController {
 
     @GetMapping("/get")
     public List<Profile> getProfiles() {
-        return profileService.findAll();
+        try {
+            return profileService.findAll();
+        } catch (
+                DataAccessException e) {
+            // どういう例外が発生しているか出力する
+            System.out.println("例外クラス: " + e.getClass().getName());
+            // 原因となった例外のチェーンを出力する
+            Throwable cause = e;
+            while ((cause = cause.getCause()) != null) {
+                System.out.println("原因例外クラス: " + cause.getClass().getName());
+            }
+            e.printStackTrace();
+            return null;
+        }
     }
-
 }

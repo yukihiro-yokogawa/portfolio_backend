@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.TimeZone;
 
+import org.springframework.dao.DataAccessException;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -20,24 +21,58 @@ import portfolio_backend.Service.ProjectService;
 @RequestMapping("api/project")
 @AllArgsConstructor
 public class ProjectController {
-    
+
     private final ProjectService projectService;
 
     @GetMapping("/get")
     public List<Project> getProjects() {
-        return projectService.findAll();
+        try {
+            return projectService.findAll();
+        } catch (DataAccessException e) {
+            // どういう例外が発生しているか出力する
+            System.out.println("例外クラス: " + e.getClass().getName());
+            // 原因となった例外のチェーンを出力する
+            Throwable cause = e;
+            while ((cause = cause.getCause()) != null) {
+                System.out.println("原因例外クラス: " + cause.getClass().getName());
+            }
+            e.printStackTrace();
+            return null;
+        }
     }
 
     @GetMapping("/getOne")
     public List<Project> getProjectById(Integer id) {
         final List<Project> projectList = new ArrayList<>();
-        projectList.add(projectService.findById(id).orElse(new Project()));
-        return projectList;
+        try {
+            projectList.add(projectService.findById(id).orElse(new Project()));
+            return projectList;
+        } catch (DataAccessException e) {
+            // どういう例外が発生しているか出力する
+            System.out.println("例外クラス: " + e.getClass().getName());
+            // 原因となった例外のチェーンを出力する
+            Throwable cause = e;
+            while ((cause = cause.getCause()) != null) {
+                System.out.println("原因例外クラス: " + cause.getClass().getName());
+            }
+            e.printStackTrace();
+            return null;
+        }
     }
 
     @PostMapping("/post")
     public void insertProject(@RequestBody Project project) {
-        projectService.insert(project);
+        try {
+            projectService.insert(project);
+        } catch (DataAccessException e) {
+            // どういう例外が発生しているか出力する
+            System.out.println("例外クラス: " + e.getClass().getName());
+            // 原因となった例外のチェーンを出力する
+            Throwable cause = e;
+            while ((cause = cause.getCause()) != null) {
+                System.out.println("原因例外クラス: " + cause.getClass().getName());
+            }
+            e.printStackTrace();
+        }
     }
-
 }

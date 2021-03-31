@@ -30,8 +30,8 @@ public class MySkillController {
     }
 
     @PostMapping("/post")
-    public void postMySkill(@RequestBody List<MySkill> skill) {
-        mySkillService.insert(skill);
+    public void postMySkill(@RequestBody List<MySkill> skillList) {
+        mySkillService.insert(skillList);
     }
 
 }

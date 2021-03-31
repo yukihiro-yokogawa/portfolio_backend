@@ -1,9 +1,7 @@
 package portfolio_backend.Controller;
 
 import lombok.AllArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import portfolio_backend.Entity.MyProfile;
 import portfolio_backend.Service.MyProfileService;
 
@@ -21,4 +19,8 @@ public class MyProfileController {
         return myProfileService.findAll();
     }
 
+    @PostMapping("/post")
+    public void getMyProfile(@RequestBody List<MyProfile> myProfileList) {
+        myProfileService.insert(myProfileList);
+    }
 }

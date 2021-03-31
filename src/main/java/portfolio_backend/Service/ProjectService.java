@@ -6,11 +6,13 @@ import java.util.Optional;
 import org.springframework.stereotype.Service;
 
 import lombok.AllArgsConstructor;
+import org.springframework.transaction.annotation.Transactional;
 import portfolio_backend.Entity.Project;
 import portfolio_backend.Repository.ProjectRepository;
 
 @Service
 @AllArgsConstructor
+@Transactional
 public class ProjectService {
 
     private final ProjectRepository projectRepository;
@@ -20,9 +22,9 @@ public class ProjectService {
     }
 
     public Optional<Project> findById(Integer id) {
-		return projectRepository.findById(id);
-	}
-    
+        return projectRepository.findById(id);
+    }
+
     public Project insert(Project project) {
         return projectRepository.save(project);
     }

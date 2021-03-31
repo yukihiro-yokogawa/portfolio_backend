@@ -2,6 +2,7 @@ package portfolio_backend.Controller;
 
 import java.util.List;
 
+import org.springframework.dao.DataAccessException;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -21,12 +22,35 @@ public class AboutController {
 
     @GetMapping("/get")
     public List<About> getAbouts() {
-        return aboutService.findAll();
+        try {
+            return aboutService.findAll();
+        } catch (
+                DataAccessException e) {
+            // どういう例外が発生しているか出力する
+            System.out.println("例外クラス: " + e.getClass().getName());
+            // 原因となった例外のチェーンを出力する
+            Throwable cause = e;
+            while ((cause = cause.getCause()) != null) {
+                System.out.println("原因例外クラス: " + cause.getClass().getName());
+            }
+            e.printStackTrace();
+            return null;
+        }
     }
 
     @PostMapping("/post")
     public void postAbout(@RequestBody About about) {
-        aboutService.insert(about);
+        try {
+            aboutService.insert(about);
+        } catch (DataAccessException e) {
+            // どういう例外が発生しているか出力する
+            System.out.println("例外クラス: " + e.getClass().getName());
+            // 原因となった例外のチェーンを出力する
+            Throwable cause = e;
+            while ((cause = cause.getCause()) != null) {
+                System.out.println("原因例外クラス: " + cause.getClass().getName());
+            }
+            e.printStackTrace();
+        }
     }
-
 }

@@ -5,11 +5,13 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 
 import lombok.AllArgsConstructor;
+import org.springframework.transaction.annotation.Transactional;
 import portfolio_backend.Entity.MySkill;
 import portfolio_backend.Repository.MySkillRepository;
 
 @Service
 @AllArgsConstructor
+@Transactional
 public class MySkillService {
 
     private final MySkillRepository mySkillRepository;
@@ -22,8 +24,8 @@ public class MySkillService {
         return mySkillRepository.findAllByDeleted(false);
     }
 
-    public void insert(List<MySkill> skill) {
-        mySkillRepository.saveAll(skill);
+    public void insert(List<MySkill> skillList) {
+        mySkillRepository.saveAll(skillList);
     }
 
 }
