@@ -26,4 +26,7 @@ public class Profile implements Serializable {
     @Column(name = "display_order")
     private Integer displayOrder;
 
+    @Column(name = "date_type")
+    private boolean dateType;
+
 }
