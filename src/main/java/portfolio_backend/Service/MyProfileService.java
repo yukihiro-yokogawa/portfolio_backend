@@ -15,8 +15,8 @@ public class MyProfileService {
 
     private final MyProfileRepository myProfileRepository;
 
-    public List<MyProfile> findAll() {
-        return myProfileRepository.findAll();
+    public List<MyProfile> findAllByOrderByDate() {
+        return myProfileRepository.findAllByOrderByDate();
     }
 
     public void insert(List<MyProfile> myProfileList) {

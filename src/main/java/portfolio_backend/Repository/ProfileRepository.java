@@ -7,6 +7,6 @@ import java.util.List;
 
 public interface ProfileRepository extends JpaRepository<Profile, Integer> {
 
-    List<Profile> findAll();
+    List<Profile> findAllByOrderByDisplayOrder();
 
 }

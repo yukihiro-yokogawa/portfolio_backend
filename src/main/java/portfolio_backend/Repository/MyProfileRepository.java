@@ -7,6 +7,6 @@ import java.util.List;
 
 public interface MyProfileRepository extends JpaRepository<MyProfile, Integer> {
 
-    List<MyProfile> findAll();
+    List<MyProfile> findAllByOrderByDate();
 
 }

@@ -18,9 +18,9 @@ public class ProfileController {
     private final ProfileService profileService;
 
     @GetMapping("/get")
-    public List<Profile> getProfiles() {
+    public List<Profile> getProfilesByOrderByDisplayOrder() {
         try {
-            return profileService.findAll();
+            return profileService.findAllByOrderByDisplayOrder();
         } catch (
                 DataAccessException e) {
             // どういう例外が発生しているか出力する

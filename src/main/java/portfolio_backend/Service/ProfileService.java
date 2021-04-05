@@ -15,8 +15,8 @@ public class ProfileService {
 
     private final ProfileRepository profileRepository;
 
-    public List<Profile> findAll() {
-        return profileRepository.findAll();
+    public List<Profile> findAllByOrderByDisplayOrder() {
+        return profileRepository.findAllByOrderByDisplayOrder();
     }
 
 }

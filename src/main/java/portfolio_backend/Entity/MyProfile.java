@@ -5,7 +5,7 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.sql.Timestamp;
+import java.util.Date;
 
 @Data
 @NoArgsConstructor
@@ -28,7 +28,7 @@ public class MyProfile implements Serializable {
     private String description;
 
     @Column(name = "date")
-    private Timestamp date;
+    private Date date;
 
     @Column(name = "deleted")
     private boolean deleted;
