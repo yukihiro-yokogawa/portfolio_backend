@@ -18,7 +18,7 @@ public class MyProfileController {
     @GetMapping("/get")
     public List<MyProfile> getMyProfiles() {
         try {
-            return myProfileService.findAllByOrderByDate();
+            return myProfileService.findAllByDeleted();
         } catch (DataAccessException e) {
             // どういう例外が発生しているか出力する
             System.out.println("例外クラス: " + e.getClass().getName());
