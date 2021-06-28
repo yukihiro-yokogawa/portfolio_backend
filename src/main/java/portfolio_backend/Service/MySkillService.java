@@ -2,6 +2,7 @@ package portfolio_backend.Service;
 
 import java.util.List;
 
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import lombok.AllArgsConstructor;
@@ -21,6 +22,7 @@ public class MySkillService {
     }
 
     public List<MySkill> findAllByDeleted() {
+        Sort.by("technique");
         return mySkillRepository.findAllByDeleted(false);
     }
 
