@@ -39,9 +39,9 @@ public class AboutController {
     }
 
     @PostMapping("/post")
-    public void postAbout(@RequestBody About about) {
+    public About postAbout(@RequestBody About about) {
         try {
-            aboutService.insert(about);
+           return aboutService.insert(about);
         } catch (DataAccessException e) {
             // どういう例外が発生しているか出力する
             System.out.println("例外クラス: " + e.getClass().getName());
@@ -51,6 +51,7 @@ public class AboutController {
                 System.out.println("原因例外クラス: " + cause.getClass().getName());
             }
             e.printStackTrace();
+            return null;
         }
     }
 }

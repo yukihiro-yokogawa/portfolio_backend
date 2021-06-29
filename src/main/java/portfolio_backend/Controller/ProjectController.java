@@ -58,9 +58,9 @@ public class ProjectController {
     }
 
     @PostMapping("/post")
-    public void insertProject(@RequestBody Project project) {
+    public Project insertProject(@RequestBody Project project) {
         try {
-            projectService.insert(project);
+            return projectService.insert(project);
         } catch (DataAccessException e) {
             // どういう例外が発生しているか出力する
             System.out.println("例外クラス: " + e.getClass().getName());
@@ -70,6 +70,7 @@ public class ProjectController {
                 System.out.println("原因例外クラス: " + cause.getClass().getName());
             }
             e.printStackTrace();
+            return null;
         }
     }
 }

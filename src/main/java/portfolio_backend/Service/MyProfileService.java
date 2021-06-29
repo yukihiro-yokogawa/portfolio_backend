@@ -21,8 +21,8 @@ public class MyProfileService {
         return myProfileRepository.findAllByDeleted(false, Sort.by("date"));
     }
 
-    public void insert(List<MyProfile> myProfileList) {
-        myProfileRepository.saveAll(myProfileList);
+    public List<MyProfile> insert(List<MyProfile> myProfileList) {
+        return myProfileRepository.saveAll(myProfileList);
     }
 
 }

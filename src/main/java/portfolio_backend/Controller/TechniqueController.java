@@ -39,11 +39,11 @@ public class TechniqueController {
         }
     }
 
-
     @PostMapping("/post")
-    public void postTechnique(@RequestBody Technique technique) {
+    public Technique postTechnique(@RequestBody Technique technique) {
         try {
-            techniqueService.insert(technique);
+            Technique savedTechnique = techniqueService.insert(technique);
+            return savedTechnique;
         } catch (DataAccessException e) {
             // どういう例外が発生しているか出力する
             System.out.println("例外クラス: " + e.getClass().getName());
@@ -53,6 +53,7 @@ public class TechniqueController {
                 System.out.println("原因例外クラス: " + cause.getClass().getName());
             }
             e.printStackTrace();
+            return null;
         }
     }
 }

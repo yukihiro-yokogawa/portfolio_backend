@@ -20,7 +20,7 @@ public class AboutService {
         return aboutRepository.findAll();
     }
 
-	public void insert(About about) {
-        aboutRepository.save(about);
+	public About insert(About about) {
+        return aboutRepository.save(about);
 	}
 }

@@ -20,8 +20,10 @@ public class TechniqueService {
         return techniqueRepository.findAll();
     }
 
-    public void insert(Technique technique) {
-        techniqueRepository.save(technique);
+    public Technique insert(Technique technique) {
+        Technique savedTechnique = techniqueRepository.save(technique);
+        System.out.println(savedTechnique);
+        return savedTechnique;
     }
 
 }

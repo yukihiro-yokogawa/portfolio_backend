@@ -33,9 +33,9 @@ public class MyProfileController {
     }
 
     @PostMapping("/post")
-    public void postMyProfile(@RequestBody List<MyProfile> myProfileList) {
+    public List<MyProfile> postMyProfile(@RequestBody List<MyProfile> myProfileList) {
         try {
-            myProfileService.insert(myProfileList);
+            return myProfileService.insert(myProfileList);
         } catch (DataAccessException e) {
             // どういう例外が発生しているか出力する
             System.out.println("例外クラス: " + e.getClass().getName());
@@ -45,6 +45,7 @@ public class MyProfileController {
                 System.out.println("原因例外クラス: " + cause.getClass().getName());
             }
             e.printStackTrace();
+            return null;
         }
     }
 }
